@@ -6,7 +6,8 @@
 
 int Function_Eyler::Function_Euler(int n) {
     if (n <= 0) {
-        throw std::invalid_argument("Invalid value of argument. Must be positive");
+        throw std::invalid_argument(
+        "Invalid value of argument. Must be positive");
     }int count = 0;
     std::vector<bool> isPrime(n, true);
 
@@ -25,5 +26,4 @@ int Function_Eyler::Function_Euler(int n) {
     }
 
     return count;
-
 }
