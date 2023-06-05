@@ -2,7 +2,7 @@
 
 #include <gtest/gtest.h>
 #include <utility>
-#include <vector>
+#include <cmath>
 #include "include/Function_Eyler.h"
 
 int Function_Eyler::Function_Euler(int n) {
@@ -15,23 +15,15 @@ int Function_Eyler::Function_Euler(int n) {
         return n;
     }
 
-    std::vector<bool> isPrime(n + 1, true);
-    isPrime[0] = isPrime[1] = false;
+	int count = n;
+	for (int i = 2; pow(i,2) <= n; i++) {
+		if (n % i == 0) {
+			count -= count / i;
+			while (n % i == 0)
+				n /= i;
+		}
+	}
+	if (n > 1) count -= count / n;
 
-    for (int i = 2; i <= std::sqrt(n); i++) {
-        if (isPrime[i]) {
-            for (int j = i * i; j <= n; j += i) {
-                isPrime[j] = false;
-            }
-        }
-    }
-
-    int count = 0;
-    for (int i = 2; i <= n; i++) {
-        if (isPrime[i]) {
-            count++;
-        }
-    }
-
-    return count;
+	return count;
 }
