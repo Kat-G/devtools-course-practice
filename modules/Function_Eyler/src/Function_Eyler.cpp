@@ -12,7 +12,7 @@ int Function_Eyler::Function_Euler(int n) {
     }
 
     if (n == 1 || n == 2) {
-        return n;
+        return 1;
     }
 
     int count = n;
