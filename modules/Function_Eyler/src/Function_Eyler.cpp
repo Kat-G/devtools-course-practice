@@ -15,15 +15,23 @@ int Function_Eyler::Function_Euler(int n) {
         return 1;
     }
 
-    int count = n;
-    for (int i = 2; pow(i, 2) <= n; i++) {
-        if (n % i == 0) {
-            count -= count / i;
-            while (n % i == 0)
-                n /= i;
+    int c, k, l;
+
+    c = 1;
+    for (int i = 2; i < n; i++) {
+        k = n;
+        l = i;
+        do {
+            if (k > l) {
+                k = k - l;
+            }
+            if (k < l) { l = l - k; }
+        } while (k != l);
+
+        if (k == 1) {
+            c++;
         }
     }
-    if (n > 1) count -= count / n;
 
-    return count;
+    return c;
 }
