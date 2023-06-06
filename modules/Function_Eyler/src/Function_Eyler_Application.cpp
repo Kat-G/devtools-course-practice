@@ -3,8 +3,7 @@
 #include "include/Function_Eyler_Application.h"
 #include <include/Function_Eyler.h>
 
-std::string Application::help()
-{
+std::string Application::help() {
     std::string message;
     message.append("This is application for Eyler Function.\n");
     message.append("Please enter a positive number.");
@@ -12,8 +11,7 @@ std::string Application::help()
     return message;
 }
 
-std::vector<int> Application::parseFromParam(int argc, char** argv)
-{
+std::vector<int> Application::parseFromParam(int argc, char** argv) {
     std::vector<int> result_args;
     int tmp;
 
@@ -25,8 +23,7 @@ std::vector<int> Application::parseFromParam(int argc, char** argv)
     return result_args;
 }
 
-std::string Application::calculate(std::vector<int> numbs)
-{
+std::string Application::calculate(std::vector<int> numbs) {
     std::string results;
     Function_Eyler f;
     for (int i = 0; i < numbs.size(); i++) {
@@ -40,8 +37,7 @@ std::string Application::calculate(std::vector<int> numbs)
     return results;
 }
 
-std::string Application::operator()(int argc, char** argv)
-{
+std::string Application::operator()(int argc, char** argv) {
     if (argc < 2) {
         return help();
     }
